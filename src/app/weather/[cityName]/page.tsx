@@ -61,4 +61,4 @@ export default async function WeatherDetailPage({ params }: WeatherDetailPagePro
       loading={false}
     />
   );
-}
+} 
