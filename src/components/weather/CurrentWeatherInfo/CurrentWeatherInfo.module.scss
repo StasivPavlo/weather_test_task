@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+
+.currentWeather {
+  margin-bottom: 2rem;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.temperature {
+  font-size: 4rem;
+  font-weight: 700;
+  color: $text-primary;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.weatherInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weatherIcon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.description {
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 0.5rem 0;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+

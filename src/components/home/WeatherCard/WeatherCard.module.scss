@@ -1,0 +1,253 @@
+@use '../../../styles/variables' as *;
+
+.weatherCard {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  color: white;
+  box-shadow: $shadow-xl;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all $transition-normal;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-md;
+  position: relative;
+  z-index: 1;
+}
+
+.cityInfo {
+  flex: 1;
+}
+
+.cityName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 $spacing-xs 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.country {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.removeButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: $radius-md;
+  padding: $spacing-sm;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+}
+
+.weatherInfo {
+  position: relative;
+  z-index: 1;
+  margin-bottom: $spacing-lg;
+}
+
+.mainWeather {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm + $spacing-xs;
+}
+
+.weatherIcon {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+
+.weatherDescription {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  margin-bottom: $spacing-md;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.weatherDetails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-sm + $spacing-xs;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.detailLabel {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-bottom: $spacing-xs;
+  font-weight: 500;
+}
+
+.detailValue {
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cardActions {
+  display: flex;
+  gap: $spacing-sm + $spacing-xs;
+  position: relative;
+  z-index: 1;
+}
+
+.updateButton,
+.detailsButton {
+  flex: 1;
+  padding: $spacing-sm + $spacing-xs $spacing-md;
+  border: none;
+  border-radius: $radius-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  font-size: 0.9rem;
+}
+
+.updateButton {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.detailsButton {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .weatherCard {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .cityName {
+    font-size: 1.3rem;
+  }
+
+  .temperature {
+    font-size: 2.5rem;
+  }
+
+  .weatherDetails {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .cardActions {
+    flex-direction: column;
+  }
+
+  .updateButton,
+  .detailsButton {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weatherCard {
+    padding: 12px;
+  }
+
+  .mainWeather {
+    gap: 12px;
+  }
+
+  .weatherIcon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .temperature {
+    font-size: 2rem;
+  }
+
+  .weatherDetails {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

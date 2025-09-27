@@ -1,0 +1,179 @@
+@use '../styles/variables' as *;
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: $spacing-lg;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-2xl;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.titleIcon {
+  color: $primary-color;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.refreshAllButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: white;
+  border: none;
+  border-radius: $radius-lg;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-normal;
+  box-shadow: $shadow-md;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  background: $bg-card;
+  border-radius: $radius-2xl;
+  padding: $spacing-2xl;
+  box-shadow: $shadow-lg;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.emptyIcon {
+  color: $text-light;
+  margin-bottom: $spacing-lg;
+  opacity: 0.6;
+}
+
+.emptyTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 $spacing-md 0;
+}
+
+.emptyDescription {
+  font-size: 1.1rem;
+  color: $text-secondary;
+  margin: 0;
+  max-width: 400px;
+}
+
+.weatherGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $spacing-xl;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: $spacing-md;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .refreshAllButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .weatherGrid {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+
+  .emptyState {
+    min-height: 300px;
+    padding: $spacing-xl;
+  }
+
+  .emptyTitle {
+    font-size: 1.5rem;
+  }
+
+  .emptyDescription {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: $spacing-sm;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .titleIcon {
+    size: 24px;
+  }
+
+  .emptyState {
+    padding: $spacing-lg;
+  }
+
+  .emptyIcon {
+    size: 48px;
+  }
+}

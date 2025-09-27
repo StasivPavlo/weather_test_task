@@ -1,0 +1,91 @@
+@use '@/styles/variables' as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.primary {
+  background: $primary-color;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: darken-color($primary-color, 10%);
+    transform: translateY(-1px);
+  }
+}
+
+.secondary {
+  background: $bg-secondary;
+  color: $text-primary;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background: darken-color($bg-secondary, 5%);
+    border-color: $primary-color;
+    transform: translateY(-1px);
+  }
+}
+
+.outline {
+  background: transparent;
+  color: $text-primary;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background: $bg-secondary;
+    border-color: $primary-color;
+    transform: translateY(-1px);
+  }
+}
+
+.small {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.medium {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.large {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+}
+
+.loading {
+  position: relative;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

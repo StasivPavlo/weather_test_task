@@ -1,0 +1,50 @@
+@use '@/styles/variables' as *;
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.cityInfo {
+  flex: 1;
+}
+
+.cityName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.country {
+  font-size: 0.875rem;
+  color: $text-secondary;
+  font-weight: 400;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $error-color;
+    background-color: rgba($error-color, 0.1);
+  }
+
+  &:focus {
+    outline: 2px solid $error-color;
+    outline-offset: 2px;
+  }
+}
+

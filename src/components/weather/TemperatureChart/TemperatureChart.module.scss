@@ -1,0 +1,31 @@
+@use '@/styles/variables' as *;
+
+.forecastSection {
+  margin-top: 2rem;
+}
+
+.forecastTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.chartContainer {
+  background: $bg-secondary;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid $border-color;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  color: $text-secondary;
+  font-size: 1rem;
+  font-weight: 500;
+}
+

@@ -1,0 +1,100 @@
+@use '../../styles/variables' as *;
+
+.errorBoundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: $spacing-xl;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: $radius-lg;
+  border: 1px solid $border-color;
+}
+
+.errorContent {
+  text-align: center;
+  max-width: 500px;
+  padding: $spacing-xl;
+  background: white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+}
+
+.errorIcon {
+  color: $error-color;
+  margin-bottom: $spacing-lg;
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.errorMessage {
+  color: $text-light;
+  margin-bottom: $spacing-xl;
+  line-height: 1.6;
+}
+
+.errorDetails {
+  text-align: left;
+  margin-bottom: $spacing-xl;
+  padding: $spacing-md;
+  background: #f8f9fa;
+  border-radius: $radius-md;
+  border: 1px solid $border-color;
+  
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.errorStack {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: $error-color;
+  background: #f1f3f4;
+  padding: $spacing-sm;
+  border-radius: $radius-sm;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.errorActions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+@media (max-width: $mobile) {
+  .errorBoundary {
+    padding: $spacing-md;
+    min-height: 300px;
+  }
+  
+  .errorContent {
+    padding: $spacing-lg;
+  }
+  
+  .errorTitle {
+    font-size: 1.25rem;
+  }
+  
+  .errorActions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}

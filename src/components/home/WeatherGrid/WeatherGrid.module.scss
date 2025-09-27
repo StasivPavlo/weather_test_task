@@ -1,0 +1,9 @@
+@use '@/styles/variables' as *;
+
+.weatherGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
+}
+

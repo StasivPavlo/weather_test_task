@@ -1,0 +1,33 @@
+@use '@/styles/variables' as *;
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 300px;
+}
+
+.emptyIcon {
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 0.75rem 0;
+}
+
+.emptyDescription {
+  font-size: 1rem;
+  color: $text-secondary;
+  margin: 0;
+  max-width: 400px;
+  line-height: 1.5;
+}
+

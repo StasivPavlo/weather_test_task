@@ -1,0 +1,107 @@
+@use '../../../styles/variables' as *;
+
+.addCityForm {
+  background: $bg-card;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  box-shadow: $shadow-lg;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: $spacing-xl;
+}
+
+.form {
+  width: 100%;
+}
+
+.inputGroup {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-end;
+}
+
+.inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $text-secondary;
+  z-index: 1;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-md $spacing-md $spacing-md 48px;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: $radius-lg;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $text-primary;
+  background: white;
+  transition: all $transition-normal;
+  box-shadow: $shadow-sm;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  &:disabled {
+    background: $bg-secondary;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &::placeholder {
+    color: $text-light;
+  }
+}
+
+
+.errorMessage {
+  margin-top: $spacing-md;
+  padding: $spacing-md;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: $radius-md;
+  color: $error-color;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .addCityForm {
+    padding: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .addCityForm {
+    padding: $spacing-sm;
+  }
+
+  .input {
+    padding: $spacing-sm $spacing-sm $spacing-sm 40px;
+    font-size: 0.9rem;
+  }
+
+  .searchIcon {
+    left: $spacing-sm;
+    size: 18px;
+  }
+
+}
